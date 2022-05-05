@@ -66,23 +66,7 @@ p {
      border: solid 1px white;
      font-size:16px;
      margin-bottom: 10px;
-     font-weight: bold;
-}
-.nav-item a:hover {    
-     cursor: pointer;
-}
-.nav-item a{
-     font-weight: bold;
-}
-.nav-item a:hover{
-     font-size: 18px;
-}
-.nav-item{
-     border: solid 1px white;
-}
-.nav-item{
-     padding: 0;
-     margin-bottom:10px;
+     font-weight: 800;
 }
 .post_box a{
      text-decoration: none;

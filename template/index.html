@@ -14,11 +14,11 @@
             <div class="container-fluid">
             <h2>My Blog Website</h2>                     
                <ul class="navbar-nav me-auto mb-2 mb-lg-0">                      
-                  <li class="nav-item" >
+                  <li class="nav-li" >
                      {% if user.is_authenticated %}
-                     <p><a class="nav-link active" href="logout">Logout</a></p>
+                     <a class="nav-link active" href="logout">Logout</a>
                      {% else %}
-                     <p><a class="nav-link active" href="login">Login For Admins Only</a></p>
+                     <a class="nav-link active" href="login">Login For Admins Only</a>
                      {% endif %}
                   </li>                         
                </ul>                        

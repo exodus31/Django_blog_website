@@ -3,7 +3,9 @@
 Hello I'm Sarthak Nandre from FY Electrical Engineering. I've made this website using HTML, CSS and Django framework only.
 
 There can only be 1 author in this website. I've already created the author. The author can login using the admin panel or by 
-clicking on the 'Login for admins only' link in the website. The login details are mentioned at the end of this readme. Authors can create and delete blogs after logging in. Also, the date and time stamp is auto generated. There is also a contact form which can be filled by the users. Author can see the details filled by the user who submits that form and can also delete them after logging in. Users can read the blogs by clicking on them and can fill the contact form at the end of the page. To edit a blog, simply delete it and retype the edited version, it will be shown in the same order as it was before.
+clicking on the 'Login for admins only' link in the website. The login details are mentioned at the end of this readme. Authors can create and delete blogs after logging in. Also, the date and time stamp is auto generated. There is also a contact form which can be filled by the users. Author can see the details filled by the user who submits that form and can also delete them after logging in. Users can read the blogs by clicking on them and can fill the contact form at the end of the page. To edit a blog, simply enter its number and retype the edited version.
+
+Note - I had almost eliminated the requirement to enter 'Blog Id' while creating a blog but due to lack of time I could'nt complete it. But this also makes editing the blog easy.
 
 To run the website,
 Step 1 : Install VS Code and python from google.

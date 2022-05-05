@@ -12,7 +12,7 @@
       <div class="navx">
          <nav class="navbar navbar-expand-lg navbar-dark  bg-dark">
             <div class="container-fluid">
-            <h2>Blog Page</h2>                     
+            <h2>Blog {{posts.id}}</h2>                     
                <ul class="navbar-nav me-auto mb-2 mb-lg-0">                      
                   <li class="nav-li">                                    
                      <a class="nav-link active" href="/">Click Here For Homepage</a>
@@ -36,6 +36,7 @@
                         <h5>{{posts.content}}</h5>
                         <br><br><br><br><hr>
                         <div class="post_box padding_bottom1">
+                           <br><br><br>
                            <p class="flot_left1">Post By : Sarthak Nandre</p>                         
                            <p class="flot_left1">{{posts.dt}}</p>
                         </div>

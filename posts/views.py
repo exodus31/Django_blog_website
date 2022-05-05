@@ -73,12 +73,11 @@ def createform(request):
         post = Posts()
         name = request.POST.get('name')
         content = request.POST.get('content')
-        y = 1
-        for x in Posts.objects.all():
-            if x.id == y:
-                y = y+1
-            else:
-                post.id = y
+        idx = request.POST.get('id')
+        if idx == "":
+            messages.info(request, 'Please Enter Valid Id')
+            return redirect('/#mess')
+        post.id=idx
         post.title = name
         post.content = content
         post.save()

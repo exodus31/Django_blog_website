@@ -64,6 +64,9 @@
          <form method="post" action="createform" class="main_form">
             {% csrf_token %}
             <div class="form-group">
+               <input name="id" type="text" class="form-control" placeholder="Enter Blog Id (1,2,3....)"/>
+            </div>
+            <div class="form-group">
                <input name="name" type="text" class="form-control" placeholder="Title"/>
             </div>
             <div class="form-group">
@@ -96,34 +99,25 @@
                {% for x in post %}
                   <div>
                   <div class="our_text_box three_box">
-                     <div class="post_box d_flex">
-                        {% if x.id == 36 %}    
-                        {% else %}
-                        <a href="/posts/{{x.id}}" class="postlink">
-                        {% endif %}
+                     <div class="post_box d_flex">                        
+                        <a href="/posts/{{x.id}}" class="postlink">                        
                         <h3 class="awesome padding_flot">{{x.title}}</h3>
                         <br>
                         <p class="post_trunc">{{x.content|truncatechars:200}}</p>
                         <br><br>
-                        {% if user.is_authenticated%}
-                        {% if x.id == 36 %}    
-                        {% else %}
-                        <div>
+                        {% if user.is_authenticated%}                        
+                        <div>                           
                            <button class="btn btn-danger">
                            <a href="delete/{{x.id}}" class="del">Delete</a>
                         </button>
-                        </div>
-                        {% endif %}
-                        {% else %}
-                        {% if x.id == 36 %}    
-                        {% else %}
+                        </div>                        
+                        {% else %}                        
                         <div class="post_box padding_bottom1">
                            <p class="flot_left1">Post By : Sarthak Nandre</p>
                         </div>                       
                         <div class="post_box padding_bottom1">
                            <p class="flot_left1">Time : {{x.dt}}</p>
-                        </div>
-                        {% endif %}
+                        </div>                        
                         {% endif %}
                         </a>
                      </div>
@@ -146,13 +140,10 @@
                <h4 class="adminss">{{z.email}}</h4>
                <h4 class="adminss">{{z.number}}</h4>
                <p class="adminss">{{z.message}}</p>
-               <br>
-               {% if z.id == 36 %}    
-               {% else %}           
+               <br>                         
                <div class="text-center">
                   <button type="button" class="btn btn-danger"><a href="delcon/{{z.id}}" class="del">Delete Contact</a></button>
-                </div>
-                {% endif %}
+                </div>               
             </div>
             <hr>
             {% endfor %}

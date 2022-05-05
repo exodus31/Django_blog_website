@@ -95,6 +95,6 @@ def delete(request, pk):
 
 def delcon(request, sk):
     Contact.objects.filter(id=sk).delete()
-    messages.info(request, 'Delconted')
+    messages.info(request, 'Contact Deleted')
     return redirect('/#mess')
 

@@ -1,0 +1,39 @@
+{% load static %}
+
+
+<html lang="en">
+   <head> 
+      <title>My Blog Website</title>
+     
+      <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/style.css' %}">
+      <link rel="icon" href="{% static 'images/fevicon.png' %}" type="image/gif" />
+   </head>
+   <style>
+      p{
+         margin-left: 80px;
+      }
+      .x{
+         color:red;
+      }
+   </style>
+   <body>
+      <br>
+      <h2 align="center">Login Page</h2>
+      <br>
+      <p>(Use username - "sarthak" and password - "nandre31". Entering wrong credentials will give error.)</p>
+      <br>
+      <form action="login" method="POST" class="main_form">
+         {% csrf_token %}
+         {% for h in messages %}
+         <h4 class="x">{{h}}</h4>
+         {% endfor %}
+         <h4> Enter username:&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="username" placeholder="sarthak"/></h4>
+         <h4> Enter password:&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="password" placeholder="nandre31"/></h4>
+         <br>
+         <input type="submit" class="btn" value="Submit" />
+      </form>
+      <br>
+      <h4 align="center"><a href="/">Click here to go to Homepage</a></h4> 
+   </body>
+</html>

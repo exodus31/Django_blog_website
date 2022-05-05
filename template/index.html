@@ -1,0 +1,186 @@
+{% load static %}
+
+<!DOCTYPE html>
+   <head>      
+      <title>My Blog Website</title>      
+      <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/style.css' %}">      
+      <link rel="icon" href="{% static 'images/logo.jpg' %}" type="image/gif" />    
+   </head>
+
+   <body class="main-layout">
+      <div class="navx">
+         <nav class="navbar navbar-expand-lg navbar-dark  bg-dark">
+            <div class="container-fluid">
+            <h2>My Blog Website</h2>                     
+               <ul class="navbar-nav me-auto mb-2 mb-lg-0">                      
+                  <li class="nav-item" >
+                     {% if user.is_authenticated %}
+                     <p><a class="nav-link active" href="logout">Logout</a></p>
+                     {% else %}
+                     <p><a class="nav-link active" href="login">Login For Admins Only</a></p>
+                     {% endif %}
+                  </li>                         
+               </ul>                        
+            </div>
+         </nav>
+      </div>      
+      {% if user.is_authenticated %}
+      {% else %}      
+      <div class="container">
+         <div class="row "> 
+            <div class="our_text_box three_box padx">
+               <div class="post_box d_flex">           
+                  <div>
+                     <img src="{% static 'images/snlogo.jpg' %}" alt="#"/>
+                  </div>            
+                  <div class="col-xl-7 col-lg-7  pad">                        
+                        <h3>Welcome To My Blog Website</h3>
+                        <p>Hi! I am Sarthak Nandre. I've made this website using HTML, CSS(Some bootstrap) and Django. Users can read a blog without logging in
+                           and can also submit a contact form at the end which can only be read by the admin. Users can view full blog by clicking on the blog
+                           which redirects them to a different page. Admin can login using the "Login for Admins Only" link in Navbar. Username and password are 
+                           mentioned on that page.Admins can create a blog, delete existing blogs and also read and delete contacts from the page they are redirected
+                           to after logging in. After login page and the page that users see are both in the same HTML file and work using the "user.is_authenticated"
+                           feature of Django. Entering wrong credentials in login page gives error. Creating and deleting post gives a notification. Deleting a 
+                           contact also gives a notification.<br>
+                           My contact details: Number - 7507115546. E-mail - ee210002067@iiti.ac.in.
+                        </p> 
+                  </div>
+               </div>
+            </div>                  
+         </div>
+      </div>
+   </div>
+      {% endif %}
+      {% if user.is_authenticated %}
+      <br id="mess">      
+      <h2 class="adminss" id="npost">You Can Create New Blog Here.</h2>
+      {% for s in messages %}
+      <br>
+         <h2 class="error">{{s}}</h2>
+      {% endfor %}
+      <br><br>
+       <div class="container">         
+         <form method="post" action="createform" class="main_form">
+            {% csrf_token %}
+            <div class="form-group">
+               <input name="name" type="text" class="form-control" placeholder="Title"/>
+            </div>
+            <div class="form-group">
+               <input name="content" type="textarea" class="form-control" placeholder="Content"/>
+            </div>
+            <div>
+               <input class="btn" type="submit" value="Create"/>
+            </div>
+         </form>         
+      </div>
+      <br><br>
+      <hr>
+      {% else %}
+      {% endif %}         
+      <div class="blog_main">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage">
+                     {% if user.is_authenticated %}
+                     <h2>You Can Delete or read your blogs below.</h2>
+                     {% else %}  
+                     <h2 class="h2x">My Blogs</h2>                     
+                     {% endif %}
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               {% for x in post %}
+                  <div>
+                  <div class="our_text_box three_box">
+                     <div class="post_box d_flex">
+                        <a href="/posts/{{x.id}}">
+                        <h3 class="awesome padding_flot">{{x.title}}</h3>
+                        <br>
+                        <p class="post_trunc">{{x.content|truncatechars:200}}</p>
+                        <br><br>
+                        {% if user.is_authenticated%}
+                        <div>
+                           <button class="btn btn-danger">
+                           <a href="delete/{{x.id}}" class="del">Delete</a>
+                        </button>
+                        </div>
+                        {% else %}
+                        <div class="post_box padding_bottom1">
+                           <p class="flot_left1">Post By : Sarthak Nandre</p>
+                        </div>                       
+                        <div class="post_box padding_bottom1">
+                           <p class="flot_left1">Time : {{x.dt}}</p>
+                        </div>
+                        {% endif %}
+                        </a>
+                     </div>
+                  </div>
+                  <br><br>
+               </div>
+               {% endfor %}
+            </div>
+         </div>
+      </div>
+      {% if user.is_authenticated %}
+         <br><br><br>
+         <hr>
+         <h2 class="adminss">You Can Read And Delete Contacts Below.</h2>
+         <br>
+         <div class="container">
+            {% for z in contactss %}            
+               <h3 class="adminss">{{z.name}}</h3>
+               <h4 class="adminss">{{z.email}}</h4>
+               <h4 class="adminss">{{z.number}}</h4>
+               <p class="adminss">{{z.message}}</p>
+               <br>               
+               <div class="text-center">
+                  <button type="button" class="btn btn-danger"><a href="delcon/{{z.id}}" class="del">Delete Contact</a></button>
+                </div>
+            </div>
+            <hr>
+            {% endfor %}
+      {% else %}
+      <div id="contact" class="contact">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage">
+                     <h2 class="h2x">Contact Me</h2>
+                     <h6>Enter your details below . No one apart from Me will be able to see it. </h6>
+                  </div>
+                  {% for x in messages %}
+                  <h3 class="error">{{x}}</h3>
+                  {% endfor %}
+               </div>
+            </div>
+         </div>
+      <div class="container">
+         <form method="post" action="contactform" class="main_form">
+            {% csrf_token %}
+            <div class="form-group">
+               <input name="name" type="text" class="form-control" placeholder="Name"/>
+            </div>
+            <div class="form-group">
+                <input name="email" type="email" class="form-control" placeholder="Email"/>
+            </div>
+            <div class="form-group">
+                <input name="number" type="number" class="form-control" placeholder="Number"/>
+            </div>
+            <div class="form-group">
+               <input name="message" type="text" class="form-control" placeholder="Message"/>
+            </div>
+            <div>
+               <input class="btn" type="submit"/>
+            </div>
+         </form>
+      </div>
+      </div>
+   {% endif %}
+    <div class="container footx">
+       <h3 class="footer"><a href="#">HAVE A GOOD DAY.</a></h3>
+    </div>
+   </body>
+</html>

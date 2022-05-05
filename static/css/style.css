@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700,900|Righteous&display=swap');
+
+body {
+     color: #3e3e3e;
+     font-size: 14px;
+     font-family: 'Lato', sans-serif;
+     line-height: 1.80857;
+     font-weight: normal;     
+}
+.adminss{
+     text-align:center;
+}
+.navbar{
+     color:white;
+     padding-top: 20px;
+}
+h1,h2,h3,h4,h6 {     
+     font-family: 'Righteous', cursive;
+}
+h5{
+     font-family: Arial, Helvetica, sans-serif;
+     font-size: 22px;       
+}
+
+ul,li,ol {
+     margin: 0px;
+     padding: 0px;
+     list-style: none;
+}
+a{
+  text-decoration: none;
+  color:#3e3e3e;   
+}
+a:hover{
+     text-decoration: none;
+     color:#3e3e3e;   
+   }
+
+img{
+     margin-top: 10px;
+     height: 400px;
+     width: 400px;
+}
+.padd{
+     padding-top: 0;
+     padding-bottom: 10px;
+}
+.pad{     
+     margin-left: 30px;
+     margin-top: 10px;
+     padding-left: 30px;
+}
+.padx{
+     border-radius: 5px;
+     color:white;
+     background-color: #353a41;
+     margin-top: 50px;     
+}
+p {
+     margin: 0px;
+     font-weight: 300;
+     font-size: 17px;
+     line-height: 28px;
+}
+
+.nav-item a:hover {    
+     cursor: pointer;
+}
+.nav-item a{
+     font-weight: bold;
+}
+.nav-item a:hover{
+     font-size: 18px;
+}
+.nav-item{
+     border: solid 1px white;
+}
+.nav-item{
+     padding: 0;
+     margin-bottom:10px;
+}
+.post_box a{
+     text-decoration: none;
+     color: black;
+}
+.post_box a:hover{
+     text-decoration: none;
+     color: black;
+}
+.post_trunc{
+     font-size: 20px;
+}
+
+.titlepage {
+     text-align: center;
+     padding-bottom: 60px;
+}
+.h2x{
+     font-size: 40px;
+     color: #3e3e3e;
+     line-height: 57px;
+     font-weight: bold;
+     padding-top: 50px;     
+}
+
+.d_flex {
+     display: flex;
+     align-items: center;
+     flex-wrap: wrap;
+}
+
+.padding_flot {
+     padding-bottom:0; 
+     display: inline-block;     
+     font-size: 20px;
+     padding-right: 14px;
+}
+.three_box {
+     padding: 20px 20px; 
+     box-shadow: 
+     #ddd 10px 10px 10px 10px;
+}
+
+.three_box p {
+     padding-bottom: 0px; 
+     padding-top: 15px;
+}
+
+.blog_main{
+     padding-top: 30px;
+}
+
+.main_form {
+     padding: 50px 50px;
+     border: #046c58 solid 1px;
+     margin: 0px 80px;
+}
+
+.error{
+     text-align:center;
+     color:red;
+}
+.adminss{
+     text-align:center;
+}
+.del{
+     color:black;
+}
+.delcon{
+     color: red;
+     text-align: center;
+}
+.btn-danger a{
+     color:white;
+     text-decoration: none;
+}
+.btn-danger a:hover{
+     color:white;
+     text-decoration: none;
+}
+.footer{
+     text-align: center;
+     padding-bottom: 20px;
+     padding-top: 50px;
+}

@@ -64,7 +64,7 @@
          <form method="post" action="createform" class="main_form">
             {% csrf_token %}
             <div class="form-group">
-               <input name="id" type="text" class="form-control" placeholder="Enter Blog Id (1,2,3....)"/>
+               <input name="id" type="number" class="form-control" placeholder="Enter Blog Id (1,2,3....)"/>
             </div>
             <div class="form-group">
                <input name="name" type="text" class="form-control" placeholder="Title"/>

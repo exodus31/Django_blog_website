@@ -17,23 +17,30 @@
          color:red;
       }
    </style>
-   <body>
+   <body class="main-layout">
+      <div class="navx">
+         <nav class="navbar navbar-expand-lg navbar-dark  bg-dark">
+            <div class="container-fluid">
+            <h2>Login Page</h2>                     
+               <ul class="navbar-nav">                      
+                  <li class="nav-li">                                    
+                     <a class="nav-link active" href="/">Click Here For Homepage</a>
+                  </li>                         
+               </ul>                        
+            </div>
+         </nav>
+      </div>       
       <br>
-      <h2 align="center">Login Page</h2>
-      <br>
-      <p>(Use username - "sarthak" and password - "nandre31". Entering wrong credentials will give error.)</p>
       <br>
       <form action="login" method="POST" class="main_form">
          {% csrf_token %}
          {% for h in messages %}
          <h4 class="x">{{h}}</h4>
          {% endfor %}
-         <h4> Enter username:&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="username" placeholder="sarthak"/></h4>
-         <h4> Enter password:&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="password" placeholder="nandre31"/></h4>
+         <h4> Enter username:&nbsp;&nbsp;<input type="text" name="username" placeholder="sarthak"/></h4>
+         <h4> Enter password:&nbsp;&nbsp;<input type="password" name="password" placeholder="nandre31"/></h4>
          <br>
          <input type="submit" class="btn" value="Submit" />
-      </form>
-      <br>
-      <h4 align="center"><a href="/">Click here to go to Homepage</a></h4> 
+      </form>      
    </body>
 </html>

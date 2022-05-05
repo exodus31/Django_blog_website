@@ -8,13 +8,25 @@
       <link rel="icon" href="{% static 'images/logo.jpg' %}" type="image/gif" />      
    </head>
   
-   <body class="main-layout">
+   <body class="main-layout">     
+      <div class="navx">
+         <nav class="navbar navbar-expand-lg navbar-dark  bg-dark">
+            <div class="container-fluid">
+            <h2>Blog {{posts.id}}</h2>                     
+               <ul class="navbar-nav me-auto mb-2 mb-lg-0">                      
+                  <li class="nav-li">                                    
+                     <a class="nav-link active" href="/">Click Here For Homepage</a>
+                  </li>                        
+               </ul>                        
+            </div>
+         </nav>
+      </div>   
       <div class="blog_main">
          <div class="container">
             <div class="row">
                <div class="col-md-12">
-                  <div class="titlepage padd">
-                     <h2>{{posts.title}}</h2>                     
+                  <div class="titlepage padd">                                          
+                     <h1>{{posts.title}}</h1>                     
                   </div>
                </div>
             </div>
@@ -31,10 +43,7 @@
                      </div>
                   </div>
                </div>
-            </div>
-             <br><br><br>
-            <h4 align="center"><a href="/">Click here to go to Homepage</a></h4>            
-            <br>    
+            </div>                
          </div>
       </div>     
    </body>

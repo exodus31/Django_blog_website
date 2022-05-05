@@ -96,17 +96,25 @@
                   <div>
                   <div class="our_text_box three_box">
                      <div class="post_box d_flex">
-                        <a href="/posts/{{x.id}}">
+                        {% if x.id == 36 %}    
+                        {% else %}
+                        <a href="/posts/{{x.id}}" class="postlink">
+                        {% endif %}
                         <h3 class="awesome padding_flot">{{x.title}}</h3>
                         <br>
                         <p class="post_trunc">{{x.content|truncatechars:200}}</p>
                         <br><br>
                         {% if user.is_authenticated%}
+                        {% if x.id == 36 %}    
+                        {% else %}
                         <div>
                            <button class="btn btn-danger">
                            <a href="delete/{{x.id}}" class="del">Delete</a>
                         </button>
                         </div>
+                        {% endif %}
+                        {% else %}
+                        {% if x.id == 36 %}    
                         {% else %}
                         <div class="post_box padding_bottom1">
                            <p class="flot_left1">Post By : Sarthak Nandre</p>
@@ -114,6 +122,7 @@
                         <div class="post_box padding_bottom1">
                            <p class="flot_left1">Time : {{x.dt}}</p>
                         </div>
+                        {% endif %}
                         {% endif %}
                         </a>
                      </div>
@@ -127,7 +136,8 @@
       {% if user.is_authenticated %}
          <br><br><br>
          <hr>
-         <h2 class="adminss">You Can Read And Delete Contacts Below.</h2>
+         <h2 class="adminss">You Can Read And Delete Messages Below.</h2>
+         <h6 class="adminss">You can also see the details of the person that contacted you.</h6>
          <br>
          <div class="container">
             {% for z in contactss %}            
@@ -135,10 +145,13 @@
                <h4 class="adminss">{{z.email}}</h4>
                <h4 class="adminss">{{z.number}}</h4>
                <p class="adminss">{{z.message}}</p>
-               <br>               
+               <br>
+               {% if z.id == 36 %}    
+               {% else %}           
                <div class="text-center">
                   <button type="button" class="btn btn-danger"><a href="delcon/{{z.id}}" class="del">Delete Contact</a></button>
                 </div>
+                {% endif %}
             </div>
             <hr>
             {% endfor %}

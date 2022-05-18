@@ -10,7 +10,7 @@
 
    <body class="main-layout">
       <div class="navx">
-         <nav class="navbar navbar-expand-lg navbar-dark  bg-dark">
+         <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow p-8 mb-5">
             <div class="container-fluid">
             <h2>My Blog Website</h2>                     
                <ul class="navbar-nav me-auto mb-2 mb-lg-0">                      
@@ -50,7 +50,7 @@
             </div>                  
          </div>
       </div>
-   </div>
+   </div>   
       {% endif %}
       {% if user.is_authenticated %}
       <br id="mess">      
@@ -89,6 +89,7 @@
                      {% if user.is_authenticated %}
                      <h2>You Can Delete or read your blogs below.</h2>
                      {% else %}  
+                     <hr>
                      <h2 class="h2x">My Blogs</h2>
                      <h6>You can click on the blog to expand it.</h6>                     
                      {% endif %}
@@ -105,7 +106,7 @@
                         <br>
                         <p class="post_trunc">{{x.content|truncatechars:200}}</p>
                         <br><br>
-                        {% if user.is_authenticated%}                        
+                        {% if user.is_authenticated %}                        
                         <div>                           
                            <button class="btn btn-danger">
                            <a href="delete/{{x.id}}" class="del">Delete</a>
